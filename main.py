@@ -5,27 +5,16 @@ from PIL import Image
 import io
 import tensorflow as tf
 
-# Set the page configuration
+
 st.set_page_config(layout="wide")
-
-# Title of the application
 st.title('Butterfly Classification Application')
-
 st.divider()
 
-# Load the pre-trained model
 model = tf.keras.models.load_model('butterfly_model.keras')
 
-# Function to preprocess the image
-def preprocess_image(image):
-    image = image.resize((128, 128))  # Resize image to match model input shape
-    image = np.array(image) / 255.0    # Normalize pixel values
-    image = np.expand_dims(image, axis=0)  # Add batch dimension
-    return image
-
-# Define all the butterfly class names
+# Define the butterfly class names in the order of model indices
 class_names = [
-    'AFRICAN GIANT SWALLOWTAIL', 'ADONIS', 'AN 88', 'AMERICAN SNOOT', 'APOLLO', 'ATALA', 
+    'AFRICAN GIANT SWALLOWTAIL', 'ADONIS', 'AN 88', 'AMERICAN SNOOT', 'APOLLO', 'ATALA',
     'BANDED ORANGE HELICONIAN', 'BANDED PEACOCK', 'BANDED WHITE', 'BECKERS WHITE', 
     'BLACK HAIRSTREAK', 'BLUE SPOT HAIRSTREAK', 'BLUE MORPHO', 'BROWN SIPROETA', 
     'CABBAGE WHITE', 'CAIRNS BIRDWING', 'CHEQUERED SKIPPER', 'CLEOPATRA', 
@@ -45,22 +34,27 @@ class_names = [
     'ZEBRA LONG WING'
 ]
 
-# File uploader
+# Assuming model uses 0 to 74 as indices; modify if needed
+unique_classes = np.arange(75)  # Adjust if indices are different
+
+# Define the ordered class names for the model
+class_names_ordered = [class_names[i] for i in unique_classes]
+
+def preprocess_image(image):
+    image = image.resize((128, 128))
+    image = np.array(image) / 255.0
+    image = np.expand_dims(image, axis=0)
+    return image
+
 uploaded_file = st.file_uploader("Choose a photo", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
-    # Display the uploaded image
     st.image(uploaded_file, caption="Uploaded Image")
-    
-    # Preprocess the uploaded image
     image = Image.open(uploaded_file)
     processed_image = preprocess_image(image)
 
-    # Predict the class
     predictions = model.predict(processed_image)
     predicted_class = np.argmax(predictions, axis=1)
 
-    # Display the prediction
-    butterfly_name = class_names[predicted_class[0]]
+    butterfly_name = class_names_ordered[predicted_class[0]]
     st.write(f"The predicted butterfly is: **{butterfly_name}**")
-
