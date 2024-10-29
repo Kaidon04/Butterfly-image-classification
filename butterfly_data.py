@@ -49,7 +49,7 @@ butterfly_facts = {
     'COMMON WOOD-NYMPH': "The common wood nymph tastes with its feet and hears with its wings. ", 
     'COPPER TAIL': "They are rapid fliers and are usually distinguished by iridescent wings. The male's forelegs are reduced, but the female's are fully developed.", 
     'CRAMER\'S ORANGE TIP': "Orange-tip caterpillars are cannibals, eating their own eggshell when they emerge and moving on to eat other orange-tip eggs nearby. Caterpillars pupate in July and overwinter as a pupa, emerging as butterflies the following spring.", 
-        'CRIMSON PATCH': "Crimson Patch butterflies have bright red patches on their hind wings that serve as a warning to predators about their unpalatable taste.",
+    'CRIMSON PATCH': "Crimson Patch butterflies have bright red patches on their hind wings that serve as a warning to predators about their unpalatable taste.",
     'DAINTY SULPHUR': "Dainty Sulphurs are one of the smallest butterflies in North America and can survive in arid environments, making them highly adaptable.",
     'DANNAUS GILIPPUS': "The Danaus gilippus, also known as the Queen butterfly, resembles the Monarch but has darker, reddish-brown wings and exhibits a fascinating mating behavior with pheromone-releasing 'hair pencils.'",
     'EASTERN COMMA': "Eastern Commas are named for the comma-shaped silver mark on the underside of their wings, which helps them blend into leaf litter when resting.",
