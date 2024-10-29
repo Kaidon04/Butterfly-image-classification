@@ -1,0 +1,15 @@
+Streamlit version: 1.39.0
+Pandas version: 2.2.3
+NumPy version: 1.24.3
+TensorFlow version: 2.17.0
+Scikit-learn version: 1.4.2
+
+streamlit==1.39.0
+tensorflow==2.17.0
+numpy==1.24.3
+Pillow==10.3.0
+scikit-learn==1.4.2
+matplotlib==3.8.4
+seaborn==0.12.2
+pandas==2.2.3
+requests==2.32.2
