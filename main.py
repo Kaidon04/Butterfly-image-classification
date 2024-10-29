@@ -4,6 +4,7 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 import io
 import tensorflow as tf
+import json
 
 
 st.set_page_config(layout="wide")
@@ -34,11 +35,9 @@ class_names = [
     'ZEBRA LONG WING'
 ]
 
-# Assuming model uses 0 to 74 as indices; modify if needed
-unique_classes = np.arange(75)  # Adjust if indices are different
 
-# Define the ordered class names for the model
-class_names_ordered = [class_names[i] for i in unique_classes]
+with open('class_order.json', 'r') as f:
+    class_names_ordered = json.load(f)
 
 def preprocess_image(image):
     image = image.resize((128, 128))
